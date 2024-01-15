@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Ver Seguidor{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/seguidor_detalles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+    <section class="seguidores">
+
+        {% if seguidor %}
+            <article class="title">
+                <h1>Seguidor {{ seguidor.seguidor }}</h1>
+            </article>
+            
+            <article class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ seguidor.id }}</td>
+                            <td>{{ seguidor.seguidor }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        {% else %}
+            <article class="title">
+                <h1>Seguidor no encontrado</h1>
+            </article>
+        {% endif %}
+    </section>
+{% endblock content %}

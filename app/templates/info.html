@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block description %}
+    Víctor Domínguez portfolio personal info page, here you can find my data.
+{% endblock description %}
+
+{% block title %}
+    Información personal
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/info.css" %}">
+    <link rel="stylesheet" href="{% static "css/tabla.css" %}">
+{% endblock head %}
+
+{% block content %}
+    <section class="info">
+        <article class="article_info table">
+            <table>
+                <thead>
+                    <th colspan="2">Información personal</th>
+                </thead>
+                <tbody>
+                    {% for key, dato in datos.items %}
+                    <tr>
+                        <th>{{ key }}</th>
+                        <td>{{ dato }}</td>
+                    </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+        </article>
+    </section>
+{% endblock content %}

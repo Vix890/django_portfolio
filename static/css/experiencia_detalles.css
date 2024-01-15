@@ -1,0 +1,115 @@
+.experiencias {    background-color: #e3f1ee;;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #007D60;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.title h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 2em;
+    color: #007E61;
+}
+
+.table {
+    width: 100%;
+}
+
+.table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table table thead tr {
+    background-color: #007E61;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.table table thead tr th {
+    padding: 5px;
+    text-align: center;
+}
+
+.table table tbody tr td {
+    padding: 0.625em;
+    overflow: hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .table table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    .table table thead tr {
+        display: none;
+        /* position: absolute;
+        top: -9999px;
+        left: -9999px; */
+    }
+
+    .table table tbody {
+        margin-top: 1em;
+    }
+
+    .table table tbody td {
+        position: relative;
+        text-align: right !important;
+    }
+
+    .table table td:before {
+        position: absolute;
+        top: 7px;
+        left: 0;
+        width: 45%;
+        padding-right: 10px;
+        text-align: left;
+        white-space: nowrap;
+        content: attr(data-column);
+    }
+
+    .table table td:nth-of-type(1):before {
+        content: "Empresa"; 
+        color: #007E61;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .table table td:nth-of-type(2):before { 
+        content: "Puesto";
+        color: #007E61;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .table table td:nth-of-type(3):before {
+        content: "Fecha Inicio";
+        color: #007E61;
+        font-weight: bold;
+        font-size: 1.2em;
+    }   
+
+    .table table td:nth-of-type(4):before {
+        content: "Fecha Fin";
+        color: #007E61;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .table table td:nth-of-type(5):before {
+        content: "Detalles";
+        color: #007E61;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+}

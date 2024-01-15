@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block description %}
+    Víctor Domínguez portfolio home page, here you can find my abilities, projects and contact me.
+{% endblock description %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+{% endblock head %}
+
+{% block content %}
+    <section class="about_me" id="about_me">
+        <article class="article_about">
+            <img src="{% static "img/fondo_landing_img.webp" %}" alt="Imagen de la landing">
+            <img src="{% static "img/fondo_landing_text.webp" %}" alt="Texto de la landing">
+        </article>
+        <article class="article_about">
+            <h1>Víctor Domínguez Fernández</h1>
+            <p>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma</p>
+            
+            {% if user.is_authenticated %}
+                <button><a href="{% url 'info' %}">Información Personal</a></button>
+                <span>* Pulse para ver la tabla</span>
+            {% else %}
+                <button><a href="{% url "login" %}">Información Personal</a></button>
+                <span>* Debes estar registrado</span>
+            {% endif %}
+        </article>
+    </section>
+
+    <section id="habilidades" class="abilities">
+        <article class="article_abilities_title">
+            <h2>Habilidades</h2>
+            <p>Estas son las habilidades que he adquirido durante mi formación y experiencia laboral.</p>
+        </article>
+        <article class="article_abilities_body">
+
+            {% if habilidades %}
+                {% if habilidades.has_next %}
+                    <button class="paginator_button"><a href="?page={{ habilidades.next_page_number }}">&lt;</a></button>
+                {% else %}
+                    <button class="paginator_button"><a href="?page=1">&lt;</a></button>
+                {% endif %}
+
+                <div class="abilities_wrapper">
+                    {% for habilidad in habilidades %}
+                    <div class="abilities_card">
+                        <h3 class="ability_title">{{ habilidad.nombre_habilidad }}</h3>
+                        <p class="ability_body">{{ habilidad.comentario }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                {% if habilidades.has_previous %}
+                    <button class="paginator_button"><a href="?page={{ habilidades.previous_page_number }}">&gt;</a></button>
+                {% else %}
+                    <button class="paginator_button"><a href="?page={{ habilidades.paginator.num_pages }}">&gt;</a></button>
+                {% endif %}
+            {% else %}
+
+                <h2>No hay habilidades que mostrar</h2>
+            {% endif %}
+
+        </article>
+    </section>
+
+    <section id="empresa" class="company">
+        <article class="article_company_title">
+            <h2>Empresa</h2>
+        </article>
+        <article class="article_company_body">
+            <div>
+                <p>Hueco para empresa en examen.</p>
+                <p>Tercera sección en el home</p>
+            </div>
+        </article>
+    </section>
+{% endblock content%}

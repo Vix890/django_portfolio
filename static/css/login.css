@@ -1,0 +1,93 @@
+section > h1 {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 50px !important;
+    color: #007E61 !important;
+}
+
+form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    box-shadow: 0 0 10px #007D60;
+    padding: 15px;
+    background-color: #e3f1ee;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form p {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+form p label {
+    font-weight: bold;
+}
+
+form p input {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #e3f1ee;
+    border: none;
+    border-bottom: 1px solid #007D60;
+}
+
+form p input:focus {
+    outline: none;
+}
+
+form select {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #e3f1ee;
+    border: none;
+    appearance: none;
+    border-left: solid transparent;
+    border-top: solid transparent;
+    border-right: solid transparent;
+    border-bottom: 0.1em solid #007D60;
+}
+
+li {
+    color: crimson;
+}
+
+form p {
+    width: 100%;
+}
+
+label {
+    color: #007D60;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+select:focus,
+select:hover {
+    outline: none;
+    border: 0.1em solid #007D60;
+    border-radius: 10px;
+}
+
+form button {
+    padding: 5px;
+    background-color: #007D60;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+
+form button:hover {
+    cursor: pointer;
+    color: gold;
+}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Formulario experiencia{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <section>
+        <h1>Editar experiencia</h1>
+
+        {% if pk %}
+            <form action="{% url "experience_edit" pk %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default">Guardar</button>
+            </form>
+        {% else %}
+            <form action="{% url "experience_create" %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save">Guardar</button>
+            </form>
+        {% endif %}
+    </section>
+{% endblock content %}

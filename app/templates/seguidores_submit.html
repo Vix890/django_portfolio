@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Formulario Seguidor{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <section>
+        
+        {% if pk %}
+            <h1>Editar Seguidores</h1>
+            <form action="{% url "seguidor_edit" pk %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save">Guardar</button>
+            </form>
+        {% else %}
+            <h1>Crear Seguidores</h1>
+            <form action="{% url "seguidor_create" %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save">Guardar</button>
+            </form>
+        {% endif %}
+    </section>
+{% endblock content %}

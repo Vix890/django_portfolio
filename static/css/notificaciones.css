@@ -1,0 +1,18 @@
+.table tbody tr, .table thead tr {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.table thead tr th {
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table tbody tr td {
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Estudios{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/estudios.css" %}">
+    <link rel="stylesheet" href="{% static "css/tabla.css" %}">
+{% endblock head %}
+
+{% block content %}
+    <section class="estudios">
+        {% for anyo, page_obj in estudios_por_anyo.items %}
+
+            <section class="title">
+                <h1>Estudios año {{ anyo}} </h1>
+            </section>
+
+            <section class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Nota</th>
+                            <th>Fecha de inicio</th>
+                            <th>Fecha de fin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for estudio in page_obj.object_list %}
+                        <tr>
+                            {% comment %} <td>Esta lleno</td> {% endcomment %}
+                            <td>{{ estudio.titulacion }}</td>
+                            <td>{{ estudio.nota_media }}</td>
+                            <td>{{ estudio.fecha_inicio }}</td>
+                            <td>{{ estudio.fecha_fin }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="paginator">
+                {% if page_obj.has_previous %}
+                <button><a href="?page={{ page_obj.previous_page_number }}">&lt</a></button>
+                {% endif %}
+                <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+                {% if page_obj.has_next %}
+                <button><a href="?page={{ page_obj.next_page_number }}">&gt</a></button>
+                {% endif %}
+            </section>
+        {% endfor %}
+    </section>
+    
+{% endblock content %}

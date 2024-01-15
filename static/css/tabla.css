@@ -1,0 +1,31 @@
+.table {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: auto;
+}
+
+.table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table table thead tr {
+    background-color: #007E61;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.table table thead tr th {
+    padding: 5px;
+    text-align: center;
+}
+
+.table table tbody tr td {
+    padding: 0.625em;
+    overflow: hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}

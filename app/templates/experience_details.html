@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Ver Experiencia{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/experiencia_detalles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+    <section class="experiencias">
+
+        <article class="title">
+            <h1>Experiencia de {{ experiencia.empresa }}</h1>
+        </article>
+
+        <article class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Empresa</th>
+                        <th>Puesto</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Fin</th>
+                        <th>Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ experiencia.empresa }}</td>
+                        <td>{{ experiencia.categoria }}</td>
+                        <td>{{ experiencia.fecha_inicio }}</td>
+                        <td>{{ experiencia.fecha_fin }}</td>
+                        <td>{{ experiencia.observaciones }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+{% endblock content %}

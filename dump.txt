@@ -1,0 +1,6 @@
+# Backup de la BBDD
+ pg_dump -U vix -W -h localhost portfolio > portfolio.sql
+
+# Crear la BBDD a mano
+# Rstore de la BBDD
+ pg_dump -U vix -W -h localhost portfolio < portfolio.sql

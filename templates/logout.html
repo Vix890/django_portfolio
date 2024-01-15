@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cerrar Sesión{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/logout.css" %}">
+{% endblock head %}
+
+{% block content %}
+    <h1>Has cerrado sesión</h1>
+    <button><a href="{% url "home" %}">Volver al inicio</a></button>
+{% endblock content %}

@@ -1,0 +1,191 @@
+.about_me {
+    flex-direction: row;
+}
+
+.abilities, .company {
+    flex-direction: column;
+}
+
+.about_me, .abilities, .company {
+    background-color: #e3f1ee;;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #007D60;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.article_about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.article_about img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.article_about h1 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #024d3b;
+    text-align: center;
+    margin: 0;
+}
+
+.article_about p {
+    text-align: justify;
+    font-size: 1.2em;
+    margin-top: 0;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.article_about button {
+    background-color: #007E61;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.article_about button a {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.article_about button:hover {
+    box-shadow: 0 0 15px crimson;
+    color: crimson;
+}
+
+.article_abilities_title, .article_company_title {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.article_abilities_title h2, .article_company_title h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #024d3b;
+    text-align: center;
+    margin: 0;
+}
+
+.article_abilities_title p, .article_company_title p {
+    text-align: justify;
+    font-size: 1.2em;
+    margin-top: 0;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+article > span {
+    color: rgb(10, 10, 9);
+    font-weight: bold;
+}
+
+.article_abilities_body{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.abilities_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 80%;
+}
+
+.abilities_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #007D60;
+}
+
+.ability_body {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.ability_title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #024d3b;
+    text-align: center;
+    margin: 0;
+}
+
+.paginator_button {
+    background-color: #007E61;
+    border-radius: 5px;
+    height: 5em;
+    border: none;
+    padding: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+
+@media screen and (max-width: 1745px) {
+    .abilities_wrapper {
+        flex-direction: column;
+    }
+
+    .abilities_card {
+        width: 80%;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .article_about p {
+        margin-top: 2em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about_me {
+        flex-direction: column;
+    }
+
+    .article_about p {
+        margin-top: 1em;
+    }
+
+    .article_about {
+        width: 100%;
+    }
+}
+
+@media screen and (max-height: 730px) {
+    .article_about p {
+        margin-top: 2em;
+    }
+}
+
+@media screen and (max-height: 300px) {
+    .article_about p {
+        margin-top: 3em;
+    }
+}

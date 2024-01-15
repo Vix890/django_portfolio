@@ -1,0 +1,41 @@
+.estudios {    background-color: #e3f1ee;;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #007D60;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.estudios h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 2em;
+    color: #007E61;
+}
+
+.paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.paginator button {
+    background-color: #007E61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.paginator button a {
+    width: 100%;
+    height: 100%;
+}

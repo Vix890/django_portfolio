@@ -1,0 +1,78 @@
+/**
+ * Styles for the footer section of the webpage.
+ * 
+ * Contains styles for the footer, article, h1, div, a, p, span and media queries.
+ */
+
+.footer {
+    flex-shrink: 0;
+    display: flex;
+    height: max-content;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #007E61;
+    color: #fff;
+    padding: 1.25rem;
+}
+
+.footer_article {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer_article h1 {
+    font-size: 1.5em;
+    margin-bottom: .5em;
+    height: auto;
+    color: #fff;
+}
+
+.footer_article div {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.footer_article div a {
+    margin-right: 10px;
+}
+
+.footer_article p {
+    font-size: 14px;
+    margin-bottom: 0;
+    margin-top: .5em;
+    color: ivory;
+}
+
+.footer_article:last-child {
+    margin-right: 0;
+    margin-bottom: 0;
+    max-width: none;
+    width: 100%;
+}
+
+#p_calidad {
+    width: 222px;
+    text-align: center;
+}
+.footer_article span {
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media only screen and (min-width: 768px) {
+    .footer_article {
+        /* ! de una en una */
+        /* width: calc(25%); */
+        /* ! de dos en dos */
+        width: calc(25% - 20px);
+        margin-right: 20px;
+    }
+
+    .footer_article:last-child {
+        margin-right: 0;
+    }
+}

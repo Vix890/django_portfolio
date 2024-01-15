@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Experiencias{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/experiencias.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+    <section class="experiencias">
+
+        <article class="title">
+            <h1>Experiencias</h1>
+            <div>
+                <button class="add">
+                    <a href="{% url "experience_create" %}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#ffffff" d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8v2Z"/></svg>
+                    </a>
+                </button>
+                <button class="restore">
+                    <a href="{% url "experiences_restore" %}">
+                        restaurar borrados
+                    </a>
+                </button>
+            </div>
+        </article>
+
+        {% if experiencias %}
+            <article class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>Puesto</th>
+                            <th colspan="3">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for experiencia in experiencias %}
+                        <tr>
+                            <td>{{ experiencia.empresa }}</td>
+                            <td>{{ experiencia.categoria }}</td>
+                            <td>
+                                <button class="details">
+                                    <a href="{% url "experience_details" experiencia.pk %}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
+                                    </a>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="edit">
+                                    <a href="{% url "experience_edit" experiencia.pk %}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256"><g fill="#ffffff"><path d="M221.66 90.34L192 120l-56-56l29.66-29.66a8 8 0 0 1 11.31 0L221.66 79a8 8 0 0 1 0 11.34Z" opacity=".2"/><path d="m227.31 73.37l-44.68-44.69a16 16 0 0 0-22.63 0L36.69 152A15.86 15.86 0 0 0 32 163.31V208a16 16 0 0 0 16 16h44.69a15.86 15.86 0 0 0 11.31-4.69L227.31 96a16 16 0 0 0 0-22.63ZM51.31 160L136 75.31L152.69 92L68 176.68ZM48 179.31L76.69 208H48Zm48 25.38L79.31 188L164 103.31L180.69 120Zm96-96L147.31 64l24-24L216 84.68Z"/></g></svg>
+                                    </a>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="delete">
+                                    <a href="{% url "experience_delete" experiencia.pk %}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#ffffff" d="M7 21q-.825 0-1.413-.588T5 19V6q-.425 0-.713-.288T4 5q0-.425.288-.713T5 4h4q0-.425.288-.713T10 3h4q.425 0 .713.288T15 4h4q.425 0 .713.288T20 5q0 .425-.288.713T19 6v13q0 .825-.588 1.413T17 21H7Zm5-7.1l1.9 1.9q.275.275.7.275t.7-.275q.275-.275.275-.7t-.275-.7l-1.9-1.9l1.9-1.9q.275-.275.275-.7t-.275-.7q-.275-.275-.7-.275t-.7.275L12 11.1l-1.9-1.9q-.275-.275-.7-.275t-.7.275q-.275.275-.275.7t.275.7l1.9 1.9l-1.9 1.9q-.275.275-.275.7t.275.7q.275.275.7.275t.7-.275l1.9-1.9Z"/></svg>
+                                    </a>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </article>
+            
+            <article class="paginator">
+                {% if experiencias.has_previous %}
+                    <button class="paginator_button"><a href="?page={{ experiencias.previous_page_number }}">&lt;</a></button>
+                {% else %}
+                    <button class="paginator_button"><a href="?page={{ experiencias.paginator.num_pages }}">&lt;</a></button>
+                {% endif %}
+                
+                <span>Página {{ experiencias.number }} de {{ experiencias.paginator.num_pages }}</span>
+                
+                {% if experiencias.has_next %}
+                    <button class="paginator_button"><a href="?page={{ experiencias.next_page_number }}">&gt;</a></button>
+                {% else %}
+                    <button class="paginator_button"><a href="?page=1">&gt;</a></button>
+                {% endif %}
+            </article>
+        {% else %}
+            <article class="no_results">
+                <h2>No hay experiencias registradas</h2>
+            </article>
+        {% endif %}
+    </section>
+{% endblock content %}
